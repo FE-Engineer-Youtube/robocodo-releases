@@ -140,11 +140,13 @@ The fingerprint shown by a new, untrusted connection is not independent proof of
 
 ## 8. Save the initial profile
 
-If **Prepare this machine** is not available until the profile exists, save the initial machine profile first. Continue preparation from that saved profile. This initial save is separate from preparation's automatic save of detected working paths.
+Save the initial machine profile, then choose **Prepare this machine**. This initial save is separate from preparation's automatic save of detected working paths.
 
 ## 9. Prepare this machine
 
 **Does Prepare machine do everything? No. All prerequisites and SSH trust must already be in place.**
+
+Prepare this machine uses SSH to bootstrap an already prepared Linux account; it does not leave RoboCodo connected.
 
 In **RoboCodo on Windows**, choose **Prepare this machine** for the configured profile.
 

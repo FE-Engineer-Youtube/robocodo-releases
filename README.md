@@ -51,7 +51,7 @@ Follow this checklist in order. The [detailed setup guide](docs/getting-started.
 5. **Choose your SSH identity:** select an existing SSH agent/private-key file, or generate a named RoboCodo-managed Ed25519 key.
 6. **Authorize the key on Linux:** if you generated a key, copy its public key and append it as a new line to the intended account's `~/.ssh/authorized_keys`, preserving existing keys. An existing identity must also be authorized. **Generating a key does not authorize it.**
 7. **Verify the server:** inspect its Ed25519 fingerprint, compare it with a trusted console or administrator, then confirm and trust the verified server in RoboCodo.
-8. **Save and prepare:** save the initial profile if required to make preparation available, then choose **Prepare this machine**. It automatically saves the detected working paths.
+8. **Save and prepare:** Save the initial machine profile, then choose **Prepare this machine**. It automatically saves the detected working paths.
 9. **Test:** choose **Test connection** and resolve any reported failures.
 10. **Connect and start:** choose **Connect**, select a project and repository, create an isolated task workspace, enter a prompt, and start the task. An isolated workspace uses a separate Git worktree so the task has its own working files.
 
@@ -65,7 +65,7 @@ flowchart LR
     subgraph access["2 · Authorize and verify"]
         direction TB
         authorize["Authorize public key on Linux"] --> trust["Verify Ed25519 fingerprint with trusted source, then trust"]
-        trust --> save["Save initial profile if required"]
+        trust --> save["Save the initial machine profile"]
     end
     subgraph work["3 · Prepare and start"]
         direction TB
@@ -78,7 +78,7 @@ flowchart LR
 
 ## Does Prepare machine do everything?
 
-**No. Prepare this machine connects the app to an already prepared Linux account.**
+**No. Prepare this machine uses SSH to bootstrap an already prepared Linux account; it does not leave RoboCodo connected.**
 
 It uses your configured SSH identity, finds existing Node.js 24 and Codex when available, verifies projects-directory access, and securely uploads, fingerprints, installs, and probes the bundled RoboCodo remote helper. It saves the working executable and helper paths in your machine profile.
 

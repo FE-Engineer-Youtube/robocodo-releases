@@ -70,11 +70,11 @@ Codex is optional for basic machine preparation and Git access, but required and
 
 | Stage | Purpose | What to inspect when it fails |
 | --- | --- | --- |
-| **Prepare this machine** | Connects, finds existing tools, checks the projects folder, securely uploads/fingerprints/installs/probes the bundled helper, and automatically saves working paths. | SSH identity and trust first; then Node.js 24, folder access, and the reported upload/install/probe error. Check account permissions and available disk space if relevant to that error. |
+| **Prepare this machine** | Uses SSH to find existing tools, check the projects folder, securely upload/fingerprint/install/probe the bundled helper, and automatically save working paths. It does not leave RoboCodo connected. | SSH identity and trust first; then Node.js 24, folder access, and the reported upload/install/probe error. Check account permissions and available disk space if relevant to that error. |
 | **Test connection** | Checks the configured connection after preparation. | Confirm the correct saved profile, reachable server, authorized identity, trusted fingerprint, and current working paths. |
 | First coding task | Runs Codex in the selected Linux workspace. | Codex installation/authentication, repository/workspace access, and any project-specific tools or dependencies reported missing. |
 
-If preparation is unavailable on a new profile, save that initial profile first. If preparation succeeds, it saves the detected executable/helper paths automatically.
+Save the initial machine profile, then choose **Prepare this machine**. If preparation succeeds, it saves the detected executable/helper paths automatically.
 
 For an existing profile after an app upgrade, run **Prepare this machine** again to install the newly bundled helper version, then test again. If an executable moved or a prerequisite was fixed, preparation can detect the working paths again. Neither preparation nor the connection test installs system packages or requires root access.
 
